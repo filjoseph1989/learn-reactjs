@@ -1,0 +1,6 @@
+☐ There is a server directory, so to test the payment put that directory in a separate location and run
+    cd server
+    npm install
+    npm index.js
+
+    To serve
