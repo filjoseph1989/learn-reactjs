@@ -5,7 +5,7 @@ import ExpenseItem from './components/ExpenseItem';
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="App-header flex justify-center">
                 <ExpenseItem></ExpenseItem>
             </header>
         </div>
