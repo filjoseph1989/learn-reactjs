@@ -5,10 +5,11 @@ import Card from '../ui/Card';
 function ExpenseItem (props) {
     return (
         <Card className="bg-purple-300 border grid m-5 mt-5 p-5 rounded card">
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-4">
                 <ExpenseDate date={props.date} />
                 <div className="flex font-bold items-center justify-start text-lg">{props.title}</div>
                 <div className="border flex font-bold items-center justify-center p-2 rounded">${props.amount}</div>
+                <button onClick={() => { console.log('clicked!') }}>Change Title</button>
             </div>
         </Card>
     );
