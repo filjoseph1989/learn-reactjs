@@ -1,6 +1,6 @@
 // import './ExpenseItem.css'; to be able to add css just do this line and create file of it
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../ui/Card';
 
 function ExpenseItem (props) {
     return (
