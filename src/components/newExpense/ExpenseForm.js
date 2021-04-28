@@ -30,9 +30,10 @@ const ExpenseForm = () => {
 
     const dateChangeHandler = (event) => {
         setUserInput((preState) => {
+            // console.log(event.target);
             return {
                 ...userInput,
-                enteredDate: event.target.value
+                enteredDate: new Date(event.target.value)
             };
         });
     };
@@ -42,6 +43,19 @@ const ExpenseForm = () => {
         event.preventDefault();
         const expenseData = {...userInput};
         console.log(expenseData);
+
+        setUserInput({
+            ...userInput,
+            enteredTitle: '',
+            enteredAmount: '',
+            enteredDate: ''
+        });
+    }
+
+    let dateInput = '';
+
+    if (userInput.enteredDate !== '') {
+        dateInput = userInput.enteredDate.toISOString().split('T')[0];
     }
 
     return <form onSubmit={submitHandler}>
@@ -49,6 +63,7 @@ const ExpenseForm = () => {
             <div>
                 <label>Title</label>
                 <input
+                    value={userInput.enteredTitle}
                     onChange={titleChangeHandler}
                     placeholder="enter title here"
                     className="border mx-11 my-3 p-1.5 w-1/2"
@@ -57,6 +72,7 @@ const ExpenseForm = () => {
             <div>
                 <label>Amount</label>
                 <input
+                    value={userInput.enteredAmount}
                     onChange={amountChangeHandler}
                     placeholder="enter amount here"
                     className="border mx-4 my-3 p-1.5 w-1/2"
@@ -65,6 +81,7 @@ const ExpenseForm = () => {
             <div>
                 <label>Date</label>
                 <input
+                    value={dateInput}
                     onChange={dateChangeHandler}
                     className="border mx-11 my-3 p-1.5 w-1/2"
                     type="date" min="2021-01-01" max="2022-12-31" />
