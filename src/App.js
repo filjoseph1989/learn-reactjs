@@ -21,9 +21,14 @@ function App() {
         }
     ];
 
+    const addNewExpenseHandler = (expenseSaveData) => {
+        console.log(expenseSaveData);
+        data.push(expenseSaveData);
+    };
+
     return (
         <div className="App">
-            <NewExpense />
+            <NewExpense onAddExpense={addNewExpenseHandler} />
             <Expenses items={data} />
         </div>
     );

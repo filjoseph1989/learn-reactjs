@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     // Here we accept object in useState() with properties that serve as
     // a container of inputs
     const [userInput, setUserInput] = useState({
@@ -42,7 +42,7 @@ const ExpenseForm = () => {
     const submitHandler = event => {
         event.preventDefault();
         const expenseData = {...userInput};
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
 
         setUserInput({
             ...userInput,

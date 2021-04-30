@@ -1,8 +1,17 @@
 import ExpenseForm from './ExpenseForm';
 
-const NewExpense = () => {
+const NewExpense = (props) => {
+    const expenseSaveDataHandler = (expenseData) => {
+        const expenseSaveData = {
+            ...expenseData,
+            id: Math.random().toString()
+        }
+
+        props.onAddExpense(expenseSaveData);
+    };
+
     return <div className="border grid mt-11 mx-auto p-5 w-1/2">
-        <ExpenseForm />
+        <ExpenseForm onSaveExpenseData={expenseSaveDataHandler} />
     </div>
 }
 
