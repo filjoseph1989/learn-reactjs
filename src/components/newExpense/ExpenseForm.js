@@ -59,34 +59,36 @@ const ExpenseForm = (props) => {
 
     return <form onSubmit={submitHandler}>
         <div>
-            <div>
-                <label>Title</label>
-                <input
-                    value={userInput.enteredTitle}
-                    onChange={titleChangeHandler}
-                    placeholder="enter title here"
-                    className="border mx-11 my-3 p-1.5 w-1/2"
-                    type="text" />
+            <div className="flex flex-wrap">
+                <div className="w-1/2">
+                    <label>Title</label>
+                    <input
+                        value={userInput.enteredTitle}
+                        onChange={titleChangeHandler}
+                        placeholder="enter title here"
+                        className="border mx-11 my-3 p-1.5 w-2/3"
+                        type="text" />
+                </div>
+                <div className="w-1/2">
+                    <label>Amount</label>
+                    <input
+                        value={userInput.enteredAmount}
+                        onChange={amountChangeHandler}
+                        placeholder="enter amount here"
+                        className="border mx-11 my-3 p-1.5 w-2/3"
+                        type="number" min="0.01" step="0.01" />
+                </div>
+                <div className="w-1/2">
+                    <label>Date</label>
+                    <input
+                        value={dateInput}
+                        onChange={dateChangeHandler}
+                        className="border mx-11 my-3 p-1.5 w-2/3"
+                        type="date" min="2021-01-01" max="2022-12-31" />
+                </div>
             </div>
-            <div>
-                <label>Amount</label>
-                <input
-                    value={userInput.enteredAmount}
-                    onChange={amountChangeHandler}
-                    placeholder="enter amount here"
-                    className="border mx-4 my-3 p-1.5 w-1/2"
-                    type="number" min="0.01" step="0.01" />
-            </div>
-            <div>
-                <label>Date</label>
-                <input
-                    value={dateInput}
-                    onChange={dateChangeHandler}
-                    className="border mx-11 my-3 p-1.5 w-1/2"
-                    type="date" min="2021-01-01" max="2022-12-31" />
-            </div>
-            <div>
-                <button className="p-1.5" type="submit">Add Expense</button>
+            <div className="flex flex-row-reverse">
+                <button className="px-10 py-1.5" type="submit">Add Expense</button>
             </div>
         </div>
     </form>

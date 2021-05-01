@@ -9,9 +9,9 @@ function Expenses(props) {
     }
 
     return (
-        <header className="App-header grid mx-auto w-1/2">
+        <header className="App-header border grid mt-5 mx-auto rounded w-1/2">
             <select
-                className="border mt-11 p-2 rounded"
+                className="border mt-11 mx-5 p-2 rounded"
                 selected={selectedYear}
                 onChange={selectedYearHandler}>
                 <option value="2019">2019</option>
@@ -19,20 +19,12 @@ function Expenses(props) {
                 <option value="2021">2021</option>
             </select>
 
-            <ExpenseItem
-                title={props.items[0].title}
-                amount={props.items[0].amount}
-                date={props.items[0].date} />
-
-            <ExpenseItem
-                title={props.items[1].title}
-                amount={props.items[1].amount}
-                date={props.items[1].date} />
-
-            <ExpenseItem
-                title={props.items[2].title}
-                amount={props.items[2].amount}
-                date={props.items[2].date} />
+            {props.items.map(
+                expense => <ExpenseItem
+                    title={expense.title}
+                    amount={expense.amount}
+                    date={expense.date} />
+            )}
         </header>
     );
 }

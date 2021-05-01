@@ -15,8 +15,8 @@ function ExpenseItem (props) {
             <div className="grid grid-cols-4">
                 <ExpenseDate date={props.date} />
                 <div className="flex font-bold items-center justify-start text-lg">{title}</div>
-                <div className="border flex font-bold items-center justify-center p-2 rounded">${props.amount}</div>
-                <button onClick={eventHandler}>Change Title</button>
+                <div className="border flex font-bold items-center justify-center mx-5 p-2 rounded">${props.amount}</div>
+                <div><button onClick={eventHandler}>Change Title</button></div>
             </div>
         </Card>
     );
