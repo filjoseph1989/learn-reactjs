@@ -1,7 +1,6 @@
 // import './ExpenseItem.css'; to be able to add css just do this line and create file of it
 import ExpenseDate from './ExpenseDate';
 import Card from '../ui/Card';
-import React, { useState } from 'react';
 
 function ExpenseItem (props) {
     const eventHandler = (e) => {
