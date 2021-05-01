@@ -30,7 +30,6 @@ const ExpenseForm = (props) => {
 
     const dateChangeHandler = (event) => {
         setUserInput((preState) => {
-            // console.log(event.target);
             return {
                 ...userInput,
                 enteredDate: new Date(event.target.value)
@@ -52,8 +51,8 @@ const ExpenseForm = (props) => {
         });
     }
 
+    // Here we modify data that is that is compatible to input type=date format
     let dateInput = '';
-
     if (userInput.enteredDate !== '') {
         dateInput = userInput.enteredDate.toISOString().split('T')[0];
     }
