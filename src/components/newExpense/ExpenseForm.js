@@ -4,9 +4,9 @@ const ExpenseForm = (props) => {
     // Here we accept object in useState() with properties that serve as
     // a container of inputs
     const [userInput, setUserInput] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
+        title: '',
+        amount: '',
+        date: ''
     });
 
     const titleChangeHandler = (event) => {
@@ -14,7 +14,7 @@ const ExpenseForm = (props) => {
         // setUserInput(), to prevent losing data. This will create a new object
         setUserInput({
             ...userInput,
-            enteredTitle: event.target.value
+            title: event.target.value
         });
     };
 
@@ -23,7 +23,7 @@ const ExpenseForm = (props) => {
         setUserInput((preState) => {
             return {
                 ...userInput,
-                enteredAmount: event.target.value
+                amount: event.target.value
             };
         });
     };
@@ -32,7 +32,7 @@ const ExpenseForm = (props) => {
         setUserInput((preState) => {
             return {
                 ...userInput,
-                enteredDate: new Date(event.target.value)
+                date: new Date(event.target.value)
             };
         });
     };
@@ -40,21 +40,21 @@ const ExpenseForm = (props) => {
     // In this function you can use axios or fetch to pass data to server
     const submitHandler = event => {
         event.preventDefault();
-        const expenseData = {...userInput};
-        props.onSaveExpenseData(expenseData);
+        props.onSaveExpenseData({...userInput});
 
+        // Used to re-empty input boxes
         setUserInput({
             ...userInput,
-            enteredTitle: '',
-            enteredAmount: '',
-            enteredDate: ''
+            title: '',
+            amount: '',
+            date: ''
         });
     }
 
     // Here we modify data that is that is compatible to input type=date format
     let dateInput = '';
-    if (userInput.enteredDate !== '') {
-        dateInput = userInput.enteredDate.toISOString().split('T')[0];
+    if (userInput.date !== '') {
+        dateInput = userInput.date.toISOString().split('T')[0];
     }
 
     return <form onSubmit={submitHandler}>
@@ -63,7 +63,7 @@ const ExpenseForm = (props) => {
                 <div className="w-1/2">
                     <label>Title</label>
                     <input
-                        value={userInput.enteredTitle}
+                        value={userInput.title}
                         onChange={titleChangeHandler}
                         placeholder="enter title here"
                         className="border mx-11 my-3 p-1.5 w-2/3"
@@ -72,7 +72,7 @@ const ExpenseForm = (props) => {
                 <div className="w-1/2">
                     <label>Amount</label>
                     <input
-                        value={userInput.enteredAmount}
+                        value={userInput.amount}
                         onChange={amountChangeHandler}
                         placeholder="enter amount here"
                         className="border mx-11 my-3 p-1.5 w-2/3"

@@ -14,16 +14,19 @@ function Expenses(props) {
                 className="border mt-11 mx-5 p-2 rounded"
                 selected={selectedYear}
                 onChange={selectedYearHandler}>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
             </select>
 
             {props.items.map(
-                expense => <ExpenseItem
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date} />
+                expense => {
+                    return <ExpenseItem
+                        id={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date} />
+                }
             )}
         </header>
     );
