@@ -8,7 +8,7 @@ const initialData = [
         id: 1,
         title: 'Car Insurance',
         amount: 299.00,
-        date: new Date(2018, 11, 24)
+        date: new Date(2019, 11, 24)
     },
     {
         id:2,

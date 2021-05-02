@@ -1,7 +1,7 @@
-import ExpenseItem from './ExpenseItem';
+import ExpensesList from './ExpensesList';
 import {useState} from 'react';
 
-function Expenses(props) {
+const Expenses = props => {
     const [selectedYear, setSelectedYear] = useState('2018');
 
     const selectedYearHandler = (event) => {
@@ -11,20 +11,6 @@ function Expenses(props) {
     const filterExpenses = props.items.filter((expense) => {
         return expense.date.getFullYear().toString() === selectedYear;
     });
-
-    let expenseContent = <p className="border mx-5 my-2.5 p-2">Item not found!</p>;
-
-    if (filterExpenses.length > 0) {
-        expenseContent = filterExpenses.map(
-            expense => {
-                return <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date} />
-            }
-        );
-    }
 
     return (
         <header className="App-header border grid mt-5 mx-auto rounded w-1/2">
@@ -38,7 +24,7 @@ function Expenses(props) {
                     <option value="2018">2018</option>
             </select>
 
-            {expenseContent}
+            <ExpensesList items={filterExpenses} />
         </header>
     );
 }
